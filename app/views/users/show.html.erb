@@ -1,0 +1,13 @@
+<h1>Showing</h1>
+
+<% if @user.profile_pic.url %>
+  <%= image_tag @user.profile_pic.url %>
+<% else %>
+  <img src="http://fillmurray.com/200/300">
+<% end %>
+
+
+<p><%= @user.first_name %></p>
+
+<p><%= @user.last_name %></p>
+
