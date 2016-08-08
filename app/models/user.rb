@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :events
+  has_many :groups
+ 
   mount_uploader :profile_pic, ProfilePicUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,0 +1,176 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ 
+ */
+ @import "bootstrap";
+
+ body {
+   margin: 0 auto;
+   
+
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+
+   font-family: 'Raleway', sans-serif;
+  
+   color: #3AACB1;
+
+ }
+nav .navbar {
+  min-height: 100px;
+}
+
+ .navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+
+ }
+
+
+ .centered {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   z-index: 2;
+   max-width: 100%;
+ }
+
+ .centered small {
+  color: #fff;
+ }
+
+
+ .shader {
+   width: 100%;
+   height: 100vh;
+   
+   position: absolute;
+   background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+   z-index: 1;
+ }
+h2 {
+  text-align: center;
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #3AACB1;
+  
+}
+h1 {
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+h2, h3 {
+  color: #3AACB1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+h3 a {
+  color: #fff;
+}
+
+.field {
+  color: #3AACB1;
+}
+
+ main {
+   width: 100%;
+   height: 100vh;
+    background: url(crisis007.jpg) no-repeat center center; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
+ }
+ .row {
+   display: flex; /* equal height of the children */
+ }
+ 
+
+.event {
+  background-color: #3AACB1;
+  border: 1px solid #fff;
+  
+}
+
+
+.date {
+  border: 1px solid #3AACB1;
+}
+
+.grey-text {
+  color: #95989A;
+}
+.green-text {
+  color: #3AACB1;
+}
+.white-text {
+  color: #fff;
+}
+
+.white-btn {
+  border: 1px solid #3AACB1;
+  padding: 2em;
+  color: #3AACB1;
+  background-color:#fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+.white-btn a:hover{
+  text-decoration: none;
+  color: #3AACB1;
+}
+
+.home-white-btn {
+  border: 1px solid #fff;
+  padding: 2em;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+.home-white-btn a {
+  color: #fff;
+}
+
+.green-btn {
+  border: 1px solid #3AACB1;
+  padding: 2em;
+  background-color:#3AACB1;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+
+}
+.green-btn a{
+  color: #fff;
+}
+
+.green-btn a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+#add_event a {
+  font-weight: 400;
+  font-size: 4em;
+  text-align: right;
+}
+#add_event a:hover {
+  text-decoration: none;
+}

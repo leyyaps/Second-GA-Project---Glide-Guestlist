@@ -1,29 +1,61 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Allocation:</strong>
-  <%= @event.allocation %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+<div>
+  <h2>Event Details</h2>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <% if @user.profile_pic.url %>
+      <%= image_tag @user.profile_pic.thumb.url %>
+    <% else %>
+      <img src="http://fillmurray.com/200/300">
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @event.name %></h3>
+    <p><%= @event.remaining %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="grey-text"><%= @event.date %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="grey-text"><%= @event.description %></p>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="white-btn col-md-6 edit">
+  <% if current_user.is_admin %>
+    <%= link_to 'Edit', edit_event_path(@event) %>
+  </div>
+  <div class="green-btn col-md-6">
+    <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+
+  <% else %>
+    <%= form_for(@group, url: { controller: 'events', action: 'book' }) do |f| %>
+      <%= f.hidden_field :id, value: @group.id %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+
+      <%= f.text_field :no_of_attendees, placeholder: "Attending" %>
+
+      <%= f.submit "Book" %> 
+    <% end %>
+  <% end %>
+ 
+ 
+</div>
+
+</div>
