@@ -1,39 +1,45 @@
-<%= form_for(event) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container">
+<h2>Create Event</h2>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+    <%= form_for(event) do |f| %>
+      <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+      <div class="field form-group">
+        <label class="grey-text"><%= f.label :name %></label>
+        <%= f.text_field :name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
-  </div>
+      <div class="field form-group">
+        <label class="grey-text"><%= f.label :date %></label>
+        <%= f.date_select :date %>
+      </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+      <div class="field form-group">
+        <label class="grey-text"><%= f.label :description %></label>
+        <%= f.text_area :description %>
+      </div>
 
-  <div class="field">
-    <%= f.label :allocation %>
-    <%= f.number_field :allocation %>
-  </div>
+      <div class="field form-group">
+        <label class="grey-text"><%= f.label :allocation %></label>
+        <%= f.number_field :allocation %>
+      </div>
+      </div>
+</div>
 
-  
-
-  <div class="actions">
+  <div class="actions col-md-4 offset-md-4">
     <%= f.submit %>
-  </div>
-<% end %>
+
+  <% end %>
+  </div> 
+</div>

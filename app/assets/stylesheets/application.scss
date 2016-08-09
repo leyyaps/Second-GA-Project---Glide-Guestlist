@@ -26,17 +26,22 @@
    color: #3AACB1;
 
  }
-nav .navbar {
-  min-height: 100px;
-}
 
- .navbar {
+
+
+
+nav.navbar {
     background-color: transparent;
     background: transparent;
     border-color: transparent;
+    
 
  }
 
+label {
+  margin-top: 0.2em;
+  margin-bottom:0.1em;
+}
 
  .centered {
    position: absolute;
@@ -57,12 +62,13 @@ nav .navbar {
    height: 100vh;
    
    position: absolute;
-   background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+   background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2));
    z-index: 1;
  }
 h2 {
   text-align: center;
 }
+
 
 
 
@@ -86,9 +92,22 @@ h3 a {
 
 .field {
   color: #3AACB1;
+
+
 }
 
- main {
+
+input {
+  width: 100%;
+  border: 1px solid #3AACB1;
+}
+.actions input {
+background-color: #3AACB1;
+color: #fff;
+
+padding: 0.8em;
+}
+main {
    width: 100%;
    height: 100vh;
     background: url(crisis007.jpg) no-repeat center center; 
@@ -101,7 +120,13 @@ h3 a {
  .row {
    display: flex; /* equal height of the children */
  }
- 
+ .centralize {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+ }
+
+
 
 .event {
   background-color: #3AACB1;
@@ -109,6 +134,51 @@ h3 a {
   
 }
 
+h3#profile-name {
+  text-align: center;
+  padding: 0.5em;
+
+}
+h3#your-bookings {
+  text-align: center;
+
+}
+h3#event-name {
+  margin-top: 0.2em;
+}
+
+div.col-md-4.offset-md-4 a {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 0.3em;
+  color: #95989A;
+}
+#search-box {
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: block;
+  // border: 1px solid #3AACB1;
+  text-align: center;
+  min-height: 2.5em;
+
+
+}
+
+.actions {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #3AACB1;
+}
+
+#event_date_run {
+  text-align: center;
+}
 
 .date {
   border: 1px solid #3AACB1;
@@ -148,6 +218,13 @@ h3 a {
 .home-white-btn a {
   color: #fff;
 }
+a.sign-up{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  color: #95989A;
+}
 
 .green-btn {
   border: 1px solid #3AACB1;
@@ -162,6 +239,9 @@ h3 a {
   color: #fff;
 }
 
+nav.navbar.navbar-light.bg-faded {
+  background-color: transparent;
+}
 .green-btn a:hover{
   text-decoration: none;
   color: #fff;
@@ -173,4 +253,16 @@ h3 a {
 }
 #add_event a:hover {
   text-decoration: none;
+}
+
+.col-md-6.offset-md-3.green-btn.run-event {
+  margin-top: 1em;
+  margin-bottom: 3em;
+
+}
+img.admin-profile-image {
+display: block;
+margin-right: auto;
+margin-left: auto;
+margin-top:1em;
 }

@@ -1,0 +1,58 @@
+<div class="container">
+<h2><%= @event.name %></h2>
+<h3 class="grey-text" id="event_date_run"><%= @event.date %></h3>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <input type="" name="" id="search" placeholder="search"> 
+    </div>    
+  </div>
+  <div class="row">
+    <div class="col-md-3 offset-md-3">
+      <h4>Name:</h4>
+    </div>
+    <div class="col-md-3">
+      <h4>Attendees:</h4>
+    </div>
+  </div>
+<% @event.groups.each do |group| %>
+  <div class="row">
+    <div class="col-md-3 offset-md-3">
+      
+      <div class="dropdown">
+      <div class="btn btn-secondary dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="users">
+        <%= group.user.full_name %>
+      </div>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <div class="card">
+        <%= image_tag group.user.profile_pic.detail.url, {class: "card-img-top"} %>
+        
+        <div class="card-block">
+          <h4 class="card-title"><%= group.user.full_name %></h4>
+          <p class="card-text">Attendees: <%= group.no_of_attendees %></p>
+        </div>
+      </div>
+      
+      </div>
+    </div>   
+    
+    </div>
+
+    
+    <%= form_for group, url: admit_event_path do |f| %>
+
+      <%= f.hidden_field :id, value: group.id %>
+      
+      <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
+      
+        <%= f.submit "Admit" %>
+   
+    </div>
+    <% end %>
+   
+  </div>
+<% end %>
+
+</div>
+
+

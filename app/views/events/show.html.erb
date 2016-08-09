@@ -4,8 +4,10 @@
 <div>
   <h2>Event Details</h2>
 </div>
+
+
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 offset-md-3">
     <% if @user.profile_pic.url %>
       <%= image_tag @user.profile_pic.thumb.url %>
     <% else %>
@@ -15,33 +17,46 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 offset-md-3">
     <h3><%= @event.name %></h3>
-    <p><%= @event.remaining %></p>
+    <% if current_user.is_admin %>
+    <p>Used:</p>
+    <p>Remaining: <%= @event.remaining %></p>
+    <p>Allocated:</p>
+    <% end %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 offset-md-3">
     <p class="grey-text"><%= @event.date %></p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 offset-md-3">
     <p class="grey-text"><%= @event.description %></p>
   </div>
 </div>
 
 
 
-<div class="row">
-  <div class="white-btn col-md-6 edit">
+
   <% if current_user.is_admin %>
-    <%= link_to 'Edit', edit_event_path(@event) %>
+  <div class="row">
+    <div class="white-btn col-md-3 offset-md-3 edit"><%= link_to 'Edit', edit_event_path(@event) %>
   </div>
-  <div class="green-btn col-md-6">
+
+  <div class="green-btn col-md-3">
     <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6 offset-md-3 green-btn run-event">
+    <%= link_to "Run Event", run_event_path(@event) %>
+    </div>
   </div>
 
   <% else %>
@@ -55,6 +70,7 @@
     <% end %>
   <% end %>
  
+
  
 </div>
 

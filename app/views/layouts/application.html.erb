@@ -9,8 +9,9 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-light bg-faded">
+  
+  <header>
+    <nav class="navbar">
       <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
         &#9776;
       </button>
@@ -19,7 +20,7 @@
         <ul class="nav navbar-nav">
             <li class="nav-item"><%= link_to "Home", root_path %></li>
           <% if current_user %>
-            <li class="nav-item"><%= link_to current_user.first_name, user_path(current_user) %></li>
+            <li class="nav-item"><%= link_to "Bookings", user_path(current_user) %></li>
             <li class="nav-item"><%= link_to "Events", events_path %></li>
             <li class="nav-item"><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li class="nav-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
@@ -30,10 +31,10 @@
         </ul>
       </div>
     </nav>
-
+  </header>
  
 
-    
+ 
       
       <%= yield %>
  

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :run, :admit]
 
   # GET /events
   # GET /events.json
@@ -48,6 +48,17 @@ class EventsController < ApplicationController
       redirect_to events_path
     end
   end
+
+  def admit
+    group = Group.find(group_params[:id])
+    group.no_of_entrees += group_params[:no_of_entrees].to_i
+    if group.save
+      redirect_to run_event_path(@event)
+    else
+      render "run"
+    end
+  end
+
   # GET /events/new
   def new
     @event = Event.new
@@ -88,6 +99,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def run
+    @event.groups.each do |group|
+      group.no_of_entrees = group.outstanding_attendees
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -111,6 +128,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:id, :event_id, :no_of_attendees)
+      params.require(:group).permit(:id, :event_id, :no_of_attendees, :no_of_entrees)
     end
 end

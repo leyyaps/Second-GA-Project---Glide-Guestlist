@@ -1,11 +1,27 @@
 <main>
-<div class="shader">
-<div class="centered">
-<h1>Glide Guestlist</h1>
-<small>Existing user? </small>
-<p class="home-white-btn"><%= link_to "Login", new_user_session_path %></p>
-<small>New? Sign up for free</small>
-<p class="green-btn"><%= link_to "Register", new_user_registration_path %></p>
+  <div class="shader">
+    <div class="centered">
+    <% if current_user && current_user.is_admin %>
+
+    <p class="home-white-btn"><%= link_to "Your Profile", user_path(current_user) %></p>
+    <p class="green-btn"><%= link_to "Your Events", events_path %></p>
+   
+
+    <% elsif current_user  %>
+
+    <p class="home-white-btn"><%= link_to "Your Bookings", user_path(current_user) %></p>
+    <p class="green-btn"><%= link_to "View Events", events_path %></p>
+    
+
+    <% else %>
+
+    <h1>Glide Guestlist</h1>
+    <small>Existing user? </small>
+    <p class="home-white-btn"><%= link_to "Login", new_user_session_path %></p>
+    <small>New? Sign up for free</small>
+    <p class="green-btn"><%= link_to "Register", new_user_registration_path %></p>
+    <% end %>
+  
+    </div>
+  </div>
 </main>
-</div>
-</div>

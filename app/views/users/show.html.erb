@@ -1,19 +1,45 @@
-<div class="row">
-  <div class="col-md-12 col-centered">
-    <h2 class="text-center">Your profile</h2>
+<div class="container">
+  <div class="row centralize">
+    <div class="col-md-6 offset-md-3">
+    
+
+  <% if @user.profile_pic.url %>
+    <%= image_tag @user.profile_pic.detail.url, {class: "admin-profile-image image-responsive"} %>
+  <% else %>
+    <img class="admin-profile-image image-responsive" src="http://fillmurray.com/200/300">
+  <% end %>
+    </div>
   </div>
+
+  <div class="row centralize">
+    <div class="col-md-6 offset-md-3">
+      <h3 id="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
+      <h3 id="your-bookings" class="grey-text text-center">Your Bookings</h3>
+      <hr>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <% @user.groups.each do |group| %>
+      <!-- EVENT IMAGE -->
+      <%= image_tag @user.profile_pic.thumb.url %><br>
+      <!-- EVENT TITLE -->
+      <h3 id="event-name"><%= group.event.name %></h3>
+      <!-- EVENT DATE -->
+      <h4><%= group.event.date %></h4>
+      <!-- EVENT DESCRIPTION -->
+      <p><%= group.event.description %><p>
+      <!-- NO OF ATTENDEES IN GROUP -->
+      <p><%= group.no_of_attendees %></p>
+      <!-- EDIT BUTTON LINK_TO events/id -->
+      <%= link_to 'Amend Attendees', event_path(group.event) %>
+      <hr>
+     
+     <% end %> 
+    
+    </div>
+  </div>
+
 </div>
-<div class="centered">
-<% if @user.profile_pic.url %>
-  <%= image_tag @user.profile_pic.detail.url %>
-
-
-<% else %>
-  <img src="http://fillmurray.com/200/300">
-<% end %>
-
-
-<h3><%= @user.first_name %> <%= @user.last_name %></p>
-
-
 </div>
