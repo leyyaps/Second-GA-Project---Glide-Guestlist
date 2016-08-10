@@ -17,9 +17,13 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'carrierwave', '0.10.0'
 
+gem 'fog', require: 'fog/aws'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+
+
 
 gem 'rmagick'
 # Use jquery as the JavaScript library

@@ -32,40 +32,31 @@ $(document).on('turbolinks:load', function() {
 
 
 
-//   var $ul = $('#users');
-//   var $lis = $ul.find('li');
+    var $ul = $('#users');
+    var $lis = $ul.find('li');
 
-//   $('#sort').on('click', function() {
-//     var button = this;
-//     $lis.sort(function(a, b) {
-//       if($(button).text() === "ASC") {
-//         return $(a).data('searchstring') > $(b).data('searchstring');
-//       } else {
-//         return $(a).data('searchstring') < $(b).data('searchstring');
-//       }
-//     }).each(function() {
-//       $(this).appendTo($ul);
-//     });
+    $('#sort').on('load', function() {
+      $lis.sort(function(a, b) { 
+          return $(a).data('searchstring') > $(b).data('searchstring');
+        }
+      }).each(function() {
+        $(this).appendTo($ul);
+      });
 
-//     if($(button).text() === "ASC") {
-//       $(button).text("DESC");
-//     } else {
-//       $(button).text("ASC");
-//     }
-//     return false;
-//   });
+      return false;
+    });
 
-//   $('#search').on('keyup', function() {
-//     var input = this;
-//     $lis.each(function() {
-//       var searchString = $(input).val().toLowerCase();
-//       var textToMatch = $(this).data('searchstring').toLowerCase();
+    $('#search').on('keyup', function() {
+      var input = this;
+      $lis.each(function() {
+        var searchString = $(input).val().toLowerCase();
+        var textToMatch = $(this).data('searchstring').toLowerCase();
 
-//       if(textToMatch.match(searchString)) {
-//         $(this).show();
-//       } else {
-//         $(this).hide();
-//       }
-//     });
-//   });
+        if(textToMatch.match(searchString)) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
 });
