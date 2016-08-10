@@ -17,10 +17,10 @@
 <% @event.groups.each do |group| %>
   <div class="row">
     <div class="col-md-3 offset-md-3">
-    <ul>
-      <li><%= group.user.full_name %></li>
-    </ul>
-
+      <ul>
+        <li><%= group.user.full_name %></li>
+      </ul>
+    </div>
 <!-- 
       <div class="dropdown">
       <div class="btn btn-secondary dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="users">
@@ -40,24 +40,24 @@
       </div>
     </div>    -->
     
-    </div>
-
     
     <%= form_for group, url: admit_event_path do |f| %>
 
       <%= f.hidden_field :id, value: group.id %>
-      <%= f.hidden_field :outstanding_attendees, value: group.outstanding_attendees %>
       
-      <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
-      
-        <%= f.submit "Admit" %>
-   
+      <div class="col-md-5">
+        <%= f.hidden_field :outstanding_attendees, value: group.outstanding_attendees %>
+        <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
+      </div>
+      <div class="col-md-5">
+        <%= f.submit "Admit", {class: "green-admit-btn"} %>
+      </div>
     </div>
     <% end %>
    
-  </div>
+  
 <% end %>
-
+</div>
 </div>
 
 

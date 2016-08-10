@@ -55,7 +55,20 @@ label {
  .centered small {
   color: #fff;
  }
+ ul {
+ -webkit-margin-before: 0;
+ -webkit-margin-after: 0;
+ -webkit-margin-start: 0px;
+ -webkit-margin-end: 0px;
+ -webkit-padding-start: 0;
+ }
 
+
+li {
+  list-style: none;
+  padding: 0;
+  list-style-type: none;
+}
 
  .shader {
    width: 100%;
@@ -234,6 +247,11 @@ input#group_no_of_attendees {
   text-align: center;
 }
 
+input#group_no_of_entrees {
+  color:#95989A;
+  text-align: center;
+}
+
 
 .green-btn {
   border: 1px solid #3AACB1;
@@ -256,6 +274,20 @@ nav.navbar.navbar-light.bg-faded {
   text-decoration: none;
   color: #fff;
 }
+
+.green-admit-btn {
+  border: 1px solid #fff;
+  
+  background-color:#3AACB1;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+
+}
+
+
+
 #add_event a {
   font-weight: 400;
   font-size: 4em;
