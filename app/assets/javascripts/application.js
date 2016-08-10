@@ -30,6 +30,36 @@ $(document).on('turbolinks:load', function() {
   });
 
 
+    var $ul = $('#users');
+    var $lis = $ul.find('li');
+
+    $(function() {
+      
+      $lis.sort(function(a, b) {
+        
+      return $(a).data('searchstring') > $(b).data('searchstring');
+      
+      }).each(function() {
+        $(this).appendTo($ul);
+      });
+
+      return false;
+    });
+
+    $('#search').on('keyup', function() {
+      var input = this;
+      $lis.each(function() {
+        var searchString = $(input).val().toLowerCase();
+        var textToMatch = $(this).data('searchstring').toLowerCase();
+
+        if(textToMatch.match(searchString)) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+
 
 
 });

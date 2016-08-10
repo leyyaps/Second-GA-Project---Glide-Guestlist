@@ -14,50 +14,34 @@
       <h4>Attendees:</h4>
     </div>
   </div>
-<% @event.groups.each do |group| %>
   <div class="row">
-    <div class="col-md-3 offset-md-3">
-      <ul>
-        <li><%= group.user.full_name %></li>
+    <div class="col-md-6 offset-md-3">
+      <ul id="users" class="list-group">
+        <% @event.groups.each do |group| %>
+          <li class="" data-searchstring="<%= group.user.full_name %>"><%= group.user.full_name %>
+            
+            <%= form_for group, url: admit_event_path do |f| %>
+
+              <%= f.hidden_field :id, value: group.id %>
+              
+            
+              <%= f.hidden_field :outstanding_attendees, value: group.outstanding_attendees %>
+              <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
+            
+             
+              <%= f.submit "Admit", {class: "green-admit-btn"} %>
+            
+          </li>
+
+           
+          
+            <% end %>
+
+        <% end %>
       </ul>
     </div>
-<!-- 
-      <div class="dropdown">
-      <div class="btn btn-secondary dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="users">
-        <%= group.user.full_name %>
-      </div>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <div class="card">
-        <%= image_tag group.user.profile_pic.detail.url, {} %>
-        
-        <div class="card-block">
-          <h4 class="card-title"><%= group.user.full_name %></h4>
-          <p class="card-text">Attendees: <%= group.no_of_attendees %></p>
-        </div>
-      </div>
-      
-      </div>
-    </div>    -->
-    
-    
-    <%= form_for group, url: admit_event_path do |f| %>
-
-      <%= f.hidden_field :id, value: group.id %>
-      
-      <div class="col-md-5">
-        <%= f.hidden_field :outstanding_attendees, value: group.outstanding_attendees %>
-        <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
-      </div>
-      <div class="col-md-5">
-        <%= f.submit "Admit", {class: "green-admit-btn"} %>
-      </div>
-    </div>
-    <% end %>
-   
-  
-<% end %>
+  </div>
 </div>
-</div>
+
 
 
