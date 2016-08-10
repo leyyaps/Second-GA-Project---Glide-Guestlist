@@ -23,7 +23,7 @@
     <div class="col-md-6 offset-md-3">
       <% @user.groups.each do |group| %>
       <!-- EVENT IMAGE -->
-      <%= image_tag @user.profile_pic.thumb.url %><br>
+      <%= image_tag group.event.brand_logo.thumb.url %><br>
       <!-- EVENT TITLE -->
       <h3 id="event-name"><%= group.event.name %></h3>
       <!-- EVENT DATE -->

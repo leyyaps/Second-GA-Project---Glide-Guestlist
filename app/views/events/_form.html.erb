@@ -31,15 +31,22 @@
       </div>
 
       <div class="field form-group">
+         <%= f.label :brand_logo %>
+         <%= f.file_field :brand_logo %>
+       </div>
+
+      <div class="field form-group">
         <label class="grey-text"><%= f.label :allocation %></label>
         <%= f.number_field :allocation %>
       </div>
-      </div>
-</div>
+      
+
 
   <div class="actions col-md-4 offset-md-4">
     <%= f.submit %>
 
   <% end %>
+  </div>
   </div> 
+</div>
 </div>

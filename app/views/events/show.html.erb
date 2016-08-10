@@ -1,6 +1,10 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-<%= link_to 'Back', events_path %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <p id="notice"><%= notice %></p>
+    <%= link_to 'Back', events_path %>
+  </div>
+</div>
 <div>
   <h2>Event Details</h2>
 </div>
@@ -8,8 +12,8 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <% if @user.profile_pic.url %>
-      <%= image_tag @user.profile_pic.thumb.url %>
+    <% if @event.brand_logo.url %>
+      <%= image_tag @event.brand_logo.thumb.url %>
     <% else %>
       <img src="http://fillmurray.com/200/300">
     <% end %>
@@ -60,13 +64,20 @@
   </div>
 
   <% else %>
+    
+
     <%= form_for(@group, url: { controller: 'events', action: 'book' }) do |f| %>
       <%= f.hidden_field :id, value: @group.id %>
       <%= f.hidden_field :event_id, value: @event.id %>
-
+    <div class="row">
+      <div class='col-md-3 offset-md-3'>
       <%= f.text_field :no_of_attendees, placeholder: "Attending" %>
-
-      <%= f.submit "Book" %> 
+      </div>
+      <div class="col-md-3">
+      <%= f.submit "Book", {class: "green-btn"} %>
+      </div>
+      </div>
+    </div>
     <% end %>
   <% end %>
  

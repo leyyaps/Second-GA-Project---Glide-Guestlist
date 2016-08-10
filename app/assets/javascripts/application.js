@@ -16,3 +16,56 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+
+$(document).on('turbolinks:load', function() {
+
+  var $outstandings = $('[name="group[outstanding_attendees]"]');
+
+  $outstandings.each(function() {
+    var $outstanding = $(this);
+    var $attendees = $outstanding.siblings('[name="group[no_of_entrees]"]');
+
+    $attendees.val($outstanding.val());
+  });
+
+
+
+
+//   var $ul = $('#users');
+//   var $lis = $ul.find('li');
+
+//   $('#sort').on('click', function() {
+//     var button = this;
+//     $lis.sort(function(a, b) {
+//       if($(button).text() === "ASC") {
+//         return $(a).data('searchstring') > $(b).data('searchstring');
+//       } else {
+//         return $(a).data('searchstring') < $(b).data('searchstring');
+//       }
+//     }).each(function() {
+//       $(this).appendTo($ul);
+//     });
+
+//     if($(button).text() === "ASC") {
+//       $(button).text("DESC");
+//     } else {
+//       $(button).text("ASC");
+//     }
+//     return false;
+//   });
+
+//   $('#search').on('keyup', function() {
+//     var input = this;
+//     $lis.each(function() {
+//       var searchString = $(input).val().toLowerCase();
+//       var textToMatch = $(this).data('searchstring').toLowerCase();
+
+//       if(textToMatch.match(searchString)) {
+//         $(this).show();
+//       } else {
+//         $(this).hide();
+//       }
+//     });
+//   });
+});

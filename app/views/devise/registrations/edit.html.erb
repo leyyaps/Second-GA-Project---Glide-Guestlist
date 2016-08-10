@@ -4,7 +4,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <p><%= devise_error_messages! %></p>
   <div class="field">
     <label class="grey-text"><%= f.label :first_name %></label>
     <%= f.text_field :first_name, autofocus: true %>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="field">
-    <label class="grey-text"><%= f.label :is_admin %></label>
+    <label class="grey-text">Is this for business?</label>
     <%= f.check_box :is_admin %>
   </div>
 
