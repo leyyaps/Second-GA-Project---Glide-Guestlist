@@ -24,6 +24,7 @@
   <div class="col-md-6 offset-md-3">
     <h3><%= @event.name %></h3>
     <% if current_user.is_admin %>
+
     <p>Allocated: <%= @event.allocation %></p>
     <p>Admitted: <%= @event.allocation - @event.remaining %></p>
     <p>Remaining: <%= @event.remaining %></p>

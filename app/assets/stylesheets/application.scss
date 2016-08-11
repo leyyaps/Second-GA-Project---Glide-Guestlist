@@ -16,6 +16,7 @@
 
  body {
    margin: 0 auto;
+   margin-bottom: 20px;
    
 
    -webkit-font-smoothing: antialiased;
@@ -189,6 +190,9 @@ h3#your-bookings {
 h3#event-name {
   margin-top: 0.2em;
 }
+h4 {
+  text-transform: uppercase;
+}
 
 div.col-md-4.offset-md-4 a {
   text-align: center;
@@ -356,4 +360,34 @@ display: block;
 margin-right: auto;
 margin-left: auto;
 margin-top:1em;
+}
+
+
+
+form.button_to input{
+  background-color: #fff;
+  border: 1px solid #3AACB1;
+  color: #3AACB1;
+  padding: 0.8em;
+  width: 12em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+ 
+}
+a.amend-btn {
+
+  border: 1px solid #3AACB1;
+  padding: 1em;
+  background-color:#3AACB1;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  display: block;
+  width: 12em;
+}
+
+li.deactive {
+  opacity: 0.2;
 }

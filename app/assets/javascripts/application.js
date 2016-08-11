@@ -26,7 +26,6 @@ $(document).on('turbolinks:load', function() {
   $outstandings.each(function() {
     var $outstanding = $(this);
     var $attendees = $outstanding.siblings('[name="group[no_of_entrees]"]');
-    console.log($attendees.val($outstanding.val()));
     $attendees.val($outstanding.val());
   });
 
@@ -62,19 +61,44 @@ $(document).on('turbolinks:load', function() {
     });
 
 
+    $('#new_event').submit(function() {
+        if ($.trim($("#event_name").val()) === "" || $.trim($("#event_description").val()) === "" || $.trim($("#event_brand_logo").val()) === "" || $.trim($("#event_allocation").val()) === "") {
+            
+            
+            alert('Sorry! You did not fill out one of the fields');
+            return false;
+        }
+    });
 
 
-    // $(function() {
+    $('body').css('display', 'none');
+
+    $('body').fadeIn(1200);
+
+
+    $('.link').click(function() {
+
+    event.preventDefault();
+
+    newLocation = this.href;
+
+    $('body').fadeOut(100, newpage);
+
+    });
+
+    function newpage() {
+
+    window.location = newLocation;
+
+    }
     
-    //   var remaining_guests = $('.entrees').val();
-    //   console.log(remaining_guests)
-    //   if (remaining_guests == 0) {
+    // var remaining_guests = $('.entrees').val();
+    // console.log(remaining_guests)
+    // if (remaining_guests == 0) {
 
-    //     $(".green-admit-btn").css('background-color','red');
-    
-    //   }
-
-    // });
+    //   $(".green-admit-btn").css('background-color','red');
+  
+    // }
 
 
 });

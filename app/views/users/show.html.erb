@@ -22,11 +22,11 @@
     <% if current_user.is_admin %>
     
     <h4>Email address:</h4>
-    <p><%= @user.email %></p>
+    <p class="grey-text"><%= @user.email %></p>
     <h4>Phone number:</h4>
-    <p><%= @user.mobile %></p>
+    <p class="grey-text"><%= @user.mobile %></p>
     <h4>Address:</h4>
-    <address>
+    <address class="grey-text">
     <%= @user.address_1 %><br>
     <%= @user.address_2 %><br>
     <%= @user.postcode %>
@@ -46,9 +46,11 @@
       <!-- EVENT DESCRIPTION -->
       <p><%= group.event.description %><p>
       <!-- NO OF ATTENDEES IN GROUP -->
-      <p><%= group.no_of_attendees %></p>
+      <p>No. of attendees: <%= group.no_of_attendees %></p>
+     
       <!-- EDIT BUTTON LINK_TO events/id -->
-      <%= link_to 'Amend Attendees', event_path(group.event) %>
+      <%= link_to 'Amend Attendees', event_path(group.event), {class: "amend-btn"} %>
+      <br>
       <hr>
      
      <% end %> 
