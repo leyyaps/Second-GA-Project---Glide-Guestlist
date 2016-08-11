@@ -16,7 +16,7 @@
 
  body {
    margin: 0 auto;
-   margin-bottom: 20px;
+   
    
 
    -webkit-font-smoothing: antialiased;
@@ -390,4 +390,7 @@ a.amend-btn {
 
 li.deactive {
   opacity: 0.2;
+}
+h3#event-title {
+  margin-top: 0.8em;
 }
