@@ -3,7 +3,7 @@
 <h3 class="grey-text" id="event_date_run"><%= @event.date %></h3>
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <input id="search" placeholder="Search" class="form-control"> 
+      <input id="search" placeholder="Search" class=""> 
     </div>    
   </div>
   <div class="row">
@@ -18,19 +18,35 @@
     <div class="col-md-6 offset-md-3">
       <ul id="users" class="list-group">
         <% @event.groups.each do |group| %>
-          <li class="" data-searchstring="<%= group.user.full_name %>"><%= group.user.full_name %>
-            
+          <li class="row" data-searchstring="<%= group.user.full_name %>">
+
+          <div class="col-md-10" id="beans" data-toggle="modal" data-target=".<%= group.user.id%>">
+          <%= group.user.full_name %>
+          </div>
+
+          <div class="modal fade <%= group.user.id %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                
+                <%= image_tag group.user.profile_pic.detail.url, {class: "admin-profile-image image-responsive"} %>
+                <h3><%= group.user.full_name %></h3>
+              </div>
+            </div>
+          </div>
+
             <%= form_for group, url: admit_event_path do |f| %>
 
               <%= f.hidden_field :id, value: group.id %>
               
-            
+           <div class="col-md-6">
               <%= f.hidden_field :outstanding_attendees, value: group.outstanding_attendees %>
-              <%= f.number_field :no_of_entrees, placeholder: "Number of entrees" %>
+              <%= f.number_field :no_of_entrees, placeholder: "Number of entrees", class: "entrees" %>
+            </div>
             
-             
+           <div class="col-md-6">
               <%= f.submit "Admit", {class: "green-admit-btn"} %>
-            
+          </div>
+
           </li>
 
            

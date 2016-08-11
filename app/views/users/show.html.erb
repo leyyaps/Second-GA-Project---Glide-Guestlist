@@ -10,16 +10,32 @@
     </div>
   </div>
 
+  
   <div class="row centralize">
     <div class="col-md-6 offset-md-3">
-      <h3 id="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
-      <h3 id="your-bookings" class="grey-text text-center">Your Bookings</h3>
-      <hr>
+      <h3 id="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>  
     </div>
   </div> 
 
   <div class="row">
     <div class="col-md-6 offset-md-3">
+    <% if current_user.is_admin %>
+    
+    <h4>Email address:</h4>
+    <p><%= @user.email %></p>
+    <h4>Phone number:</h4>
+    <p><%= @user.mobile %></p>
+    <h4>Address:</h4>
+    <address>
+    <%= @user.address_1 %><br>
+    <%= @user.address_2 %><br>
+    <%= @user.postcode %>
+
+    </address>
+
+    <% else %>
+      <h3 id="your-bookings" class="grey-text text-center">Your Bookings</h3>
+      <hr>
       <% @user.groups.each do |group| %>
       <!-- EVENT IMAGE -->
       <%= image_tag group.event.brand_logo.thumb.url %><br>
@@ -36,9 +52,8 @@
       <hr>
      
      <% end %> 
-    
+    <% end %>
     </div>
   </div>
 
-</div>
 </div>

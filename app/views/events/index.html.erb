@@ -24,10 +24,10 @@
 <% @events.each do |event| %>
   <div class="row">
     <div class="date col-md-2 text-right">
-      <h3 class=""><%= event.date %></h3>
+      <h4 class=""><%= event.date %></h4>
     </div>
     <div class="date col-md-2 text-right">
-      <h3 class=""><%= image_tag event.brand_logo.thumb.url %></h3>
+      <%= image_tag event.brand_logo.thumb.url, {class:"img-fluid"} %>
     </div>
 
     <div class="event white-text col-md-8 text-left">

@@ -22,10 +22,11 @@ $(document).on('turbolinks:load', function() {
 
   var $outstandings = $('[name="group[outstanding_attendees]"]');
 
+
   $outstandings.each(function() {
     var $outstanding = $(this);
     var $attendees = $outstanding.siblings('[name="group[no_of_entrees]"]');
-
+    console.log($attendees.val($outstanding.val()));
     $attendees.val($outstanding.val());
   });
 
@@ -60,6 +61,20 @@ $(document).on('turbolinks:load', function() {
       });
     });
 
+
+
+
+    // $(function() {
+    
+    //   var remaining_guests = $('.entrees').val();
+    //   console.log(remaining_guests)
+    //   if (remaining_guests == 0) {
+
+    //     $(".green-admit-btn").css('background-color','red');
+    
+    //   }
+
+    // });
 
 
 });
